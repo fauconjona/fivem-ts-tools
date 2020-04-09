@@ -1,0 +1,35 @@
+{
+  "name": "fivem-ts-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauconjona/fivem-ts-tools.git"
+  },
+  "keywords": [
+    "fivem",
+    "ts",
+    "tools"
+  ],
+  "author": "fauconjona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fauconjona/fivem-ts-tools/issues"
+  },
+  "homepage": "https://github.com/fauconjona/fivem-ts-tools#readme",
+  "devDependencies": {
+    "@types/reflect-metadata": "^0.1.0",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@citizenfx/client": "^1.0.2328-1",
+    "@types/node": "^13.11.1",
+    "reflect-metadata": "^0.1.13"
+  }
+}
