@@ -1,5 +1,6 @@
 //region IMPORTS
 
+import "reflect-metadata";
 import {AbstractController} from "./abstract.controller";
 
 //endregion

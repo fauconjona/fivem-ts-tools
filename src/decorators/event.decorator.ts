@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 export const Event = (eventName: string): MethodDecorator => {
     return (target: Object, methodName: string | symbol): void => {
         if (! Reflect.hasMetadata('events', target)) {

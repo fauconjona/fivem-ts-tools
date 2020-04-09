@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 export const Controller = (): ClassDecorator => {
     return (target: any) => {
       if (! Reflect.hasMetadata('events', target)) {

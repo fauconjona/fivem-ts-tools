@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 //region CLASS
 
 export abstract class AbstractController {
