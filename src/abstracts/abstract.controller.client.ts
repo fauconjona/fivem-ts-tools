@@ -18,6 +18,15 @@ export abstract class AbstractControllerClient extends AbstractController {
                 onNet(event.name, (...args) => this[event.method](...args));
             })
         } 
+
+        const nuiEvents: Array<any> = Reflect.getMetadata('nuiEvents', this);
+
+        if (nuiEvents) {
+            nuiEvents.forEach((event) => {
+                RegisterNuiCallbackType(event.name);
+                on(`__cfx_nui:${event.name}`, (data: any, cb: Function) => this[event.method](data, cb));
+            })
+        } 
     }
 
     protected emitNetPromise = (eventName: string, ...args) => {

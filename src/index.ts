@@ -5,6 +5,7 @@ export { AbstractService } from './abstracts/abstract.service';
 export { Controller } from './decorators/controller.decorator';
 export { Event } from './decorators/event.decorator';
 export { NetEvent } from './decorators/netEvent.decorator';
+export { NuiEvent } from './decorators/nuiEvent.decorator';
 
 export function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
