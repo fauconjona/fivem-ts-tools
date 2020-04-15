@@ -57,11 +57,11 @@ export abstract class AbstractController {
 
     //any parce qu'on peut afficher des objets
     public logSuccess = (message: any) => {
-        console.log('\x1b[32m%s\x1b[0m', `[bReal ${GetCurrentResourceName()}] ${message}`); 
+        console.log('\x1b[32m%s\x1b[0m', `[${GetCurrentResourceName()}] ${message}`); 
     };
 
     public logError = (message: any) => {
-        console.error('\x1b[31m%s\x1b[0m', `[bReal ${GetCurrentResourceName()}] ${message}`); 
+        console.error('\x1b[31m%s\x1b[0m', `[${GetCurrentResourceName()}] ${message}`); 
     };
 
 }

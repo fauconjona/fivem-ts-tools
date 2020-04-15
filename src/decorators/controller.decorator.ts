@@ -8,5 +8,8 @@ export const Controller = (): ClassDecorator => {
       if (! Reflect.hasMetadata('netEvents', target)) {
         Reflect.defineMetadata('netEvents', [], target);
       }
+      if (! Reflect.hasMetadata('nuiEvents', target)) {
+        Reflect.defineMetadata('nuiEvents', [], target);
+      }
     };
   };
