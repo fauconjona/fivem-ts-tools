@@ -6,6 +6,9 @@ export { Controller } from './decorators/controller.decorator';
 export { Event } from './decorators/event.decorator';
 export { NetEvent } from './decorators/netEvent.decorator';
 export { NuiEvent } from './decorators/nuiEvent.decorator';
+export { Command } from './decorators/command.decorator';
+export { OnInterval } from './decorators/onInterval.decorator';
+export { OnTick } from './decorators/onTick.decorator';
 
 export function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
