@@ -11,5 +11,8 @@ export const Controller = (): ClassDecorator => {
       if (! Reflect.hasMetadata('nuiEvents', target)) {
         Reflect.defineMetadata('nuiEvents', [], target);
       }
+      if (! Reflect.hasMetadata('commands', target)) {
+        Reflect.defineMetadata('commands', [], target);
+      }
     };
   };

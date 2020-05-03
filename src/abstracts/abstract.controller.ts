@@ -6,12 +6,33 @@ export abstract class AbstractController {
 
     protected constructor() {
         const events: Array<any> = Reflect.getMetadata('events', this);
+        const commands: Array<any> = Reflect.getMetadata('commands', this);
+        const ticks: Array<any> = Reflect.getMetadata('ticks', this);
+        const intervals: Array<any> = Reflect.getMetadata('intervals', this);
 
         if (events) {
             events.forEach((event) => {
                 on(event.name, (...args) => this[event.method](...args));
             })
         }   
+
+        if (commands) {
+            commands.forEach((command) => {
+                RegisterCommand(command.name, (...args) => this[command.method](...args), command.restricted);
+            })
+        } 
+        
+        if (ticks) {
+            ticks.forEach((tick) => {
+                setTick(() => this[tick.method]());
+            })
+        } 
+
+        if (intervals) {
+            intervals.forEach((interval) => {
+                setInterval(() => this[interval.method](), interval.ms);
+            })
+        } 
     }
 
     protected uuidv4 = () => {
