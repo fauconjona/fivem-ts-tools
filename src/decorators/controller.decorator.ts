@@ -14,5 +14,11 @@ export const Controller = (): ClassDecorator => {
       if (! Reflect.hasMetadata('commands', target)) {
         Reflect.defineMetadata('commands', [], target);
       }
+      if (! Reflect.hasMetadata('ticks', target)) {
+        Reflect.defineMetadata('ticks', [], target);
+      }
+      if (! Reflect.hasMetadata('intervals', target)) {
+        Reflect.defineMetadata('intervals', [], target);
+      }
     };
   };
