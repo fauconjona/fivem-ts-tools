@@ -9,6 +9,7 @@ export { NuiEvent } from './decorators/nuiEvent.decorator';
 export { Command } from './decorators/command.decorator';
 export { OnInterval } from './decorators/onInterval.decorator';
 export { OnTick } from './decorators/onTick.decorator';
+export { OnKey } from './decorators/onKey.decorator';
 
 export function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
