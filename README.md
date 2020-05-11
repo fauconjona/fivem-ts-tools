@@ -84,6 +84,24 @@ If on a server controller, the first param need to be the source as string
 
 Add a nui event listner on the method for the event
 
+**@OnTick()** (method)
+
+Execute the method every tick
+
+**@OnInterval(ms: number)** (method)
+
+Execute the method every `ms` millisecondes
+
+**@Command(commandName: string, restricted: boolean (default = false))** (method)
+
+Register the method as a command
+
+**@OnKey(mapper: string, key: string, description: string, toggle: boolean (default = true))** (method)
+
+Execute the method on key action, more info: https://cookbook.fivem.net/2020/01/06/using-the-new-console-key-bindings/
+
+if toggle is false, the param `pushed` will be send to the method.
+
 ## Utils
 
 **function delay(ms: number): Promise<any>**

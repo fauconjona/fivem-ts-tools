@@ -12,19 +12,31 @@ export abstract class AbstractControllerClient extends AbstractController {
     protected constructor() {
         super();
         const netEvents: Array<any> = Reflect.getMetadata('netEvents', this);
+        const nuiEvents: Array<any> = Reflect.getMetadata('nuiEvents', this);
+        const keys: Array<any> = Reflect.getMetadata('keys', this);
 
         if (netEvents) {
             netEvents.forEach((event) => {
                 onNet(event.name, (...args) => this[event.method](...args));
             })
-        } 
-
-        const nuiEvents: Array<any> = Reflect.getMetadata('nuiEvents', this);
+        }        
 
         if (nuiEvents) {
             nuiEvents.forEach((event) => {
                 RegisterNuiCallbackType(event.name);
                 on(`__cfx_nui:${event.name}`, (data: any, cb: Function) => this[event.method](data, cb));
+            })
+        } 
+
+        if (keys) {
+            keys.forEach((key) => {
+                if (key.toggle) {
+                    RegisterCommand(key.name, () => this[key.method](), false);
+                } else {
+                    RegisterCommand('+'+key.name, () => this[key.method](true), false);
+                    RegisterCommand('-'+key.name, () => this[key.method](false), false);
+                }
+                RegisterKeyMapping((key.toggle?'':'+') + key.name, key.description, key.mapper, key.key);
             })
         } 
     }
