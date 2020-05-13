@@ -3,7 +3,7 @@ import "reflect-metadata";
 export const NuiEvent = (eventName: string): MethodDecorator => {
     return (target: Object, methodName: string | symbol): void => {
         if (! Reflect.hasMetadata('nuiEvents', target)) {
-            Reflect.defineMetadata('netEvents', [], target);
+            Reflect.defineMetadata('nuiEvents', [], target);
         }
     
         const nuiEvents = Reflect.getMetadata('nuiEvents', target) as Array<any>;
