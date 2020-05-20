@@ -46,9 +46,14 @@ export abstract class AbstractController {
         return new Promise((resolve, reject) => {
             emit(eventName, ...args, (result, error) => {
                 if (error) {
-                    return reject(error);
+                    setImmediate(() => {
+                        reject(error);
+                    });
+                    return;
                 }
-                resolve(result);
+                setImmediate(() => {
+                    resolve(result);
+                });                
             });
         });
     };
@@ -59,8 +64,10 @@ export abstract class AbstractController {
             let timeout = false;
 
             setTimeout(() => {
-                timeout = true;
-                reject(`PromiseTimeout => Resource = ${GetCurrentResourceName()}, EventName = ${eventName}`);
+                timeout = true;                
+                setImmediate(() => {
+                    reject(`PromiseTimeout => Resource = ${GetCurrentResourceName()}, EventName = ${eventName}`);
+                });
             }, 10000);
 
             emit(eventName, ...args, (result, error) => {
@@ -69,9 +76,14 @@ export abstract class AbstractController {
                 }
 
                 if (error) {
-                    return reject(error);
+                    setImmediate(() => {
+                        reject(error);
+                    });
+                    return;
                 }
-                resolve(result);
+                setImmediate(() => {
+                    resolve(result);
+                });
             });
         });
     };
