@@ -64,7 +64,7 @@ export abstract class AbstractControllerClient extends AbstractController {
                 }
 
                 if (error) {
-                    return reject(error);
+                    return reject(typeof error == "object" ? JSON.stringify(error) : error);
                 }
                 resolve(result);
             }

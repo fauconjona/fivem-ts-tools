@@ -47,7 +47,7 @@ export abstract class AbstractController {
             emit(eventName, ...args, (result, error) => {
                 if (error) {
                     setImmediate(() => {
-                        reject(error);
+                        reject(typeof error == "object" ? JSON.stringify(error) : error);
                     });
                     return;
                 }
@@ -77,7 +77,7 @@ export abstract class AbstractController {
 
                 if (error) {
                     setImmediate(() => {
-                        reject(error);
+                        reject(typeof error == "object" ? JSON.stringify(error) : error);
                     });
                     return;
                 }
