@@ -2,23 +2,23 @@ import "reflect-metadata";
 
 export const Controller = (): ClassDecorator => {
     return (target: any) => {
-      if (! Reflect.hasMetadata('events', target)) {
-        Reflect.defineMetadata('events', [], target);
-      }
-      if (! Reflect.hasMetadata('netEvents', target)) {
-        Reflect.defineMetadata('netEvents', [], target);
-      }
-      if (! Reflect.hasMetadata('nuiEvents', target)) {
-        Reflect.defineMetadata('nuiEvents', [], target);
-      }
-      if (! Reflect.hasMetadata('commands', target)) {
-        Reflect.defineMetadata('commands', [], target);
-      }
-      if (! Reflect.hasMetadata('ticks', target)) {
-        Reflect.defineMetadata('ticks', [], target);
-      }
-      if (! Reflect.hasMetadata('intervals', target)) {
-        Reflect.defineMetadata('intervals', [], target);
-      }
+        if (! Reflect.hasMetadata('events', target.prototype)) {
+            Reflect.defineMetadata('events', [], target.prototype);
+        }
+        if (! Reflect.hasMetadata('netEvents', target.prototype)) {
+            Reflect.defineMetadata('netEvents', [], target.prototype);
+        }
+        if (! Reflect.hasMetadata('nuiEvents', target.prototype)) {
+            Reflect.defineMetadata('nuiEvents', [], target.prototype);
+        }
+        if (! Reflect.hasMetadata('commands', target.prototype)) {
+            Reflect.defineMetadata('commands', [], target.prototype);
+        }
+        if (! Reflect.hasMetadata('ticks', target.prototype)) {
+            Reflect.defineMetadata('ticks', [], target.prototype);
+        }
+        if (! Reflect.hasMetadata('intervals', target.prototype)) {
+            Reflect.defineMetadata('intervals', [], target.prototype);
+        }
     };
-  };
+};
